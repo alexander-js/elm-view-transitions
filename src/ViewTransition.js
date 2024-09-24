@@ -187,7 +187,7 @@ export default class ElmViewTransition extends HTMLElement {
                 parent: proxy
               })
 
-              getChildren().push(child)
+              getChildren().push(proxyChild)
 
               this.mutate(() => {
                 appendChild(proxyChild.__realNode__)
@@ -272,5 +272,6 @@ export default class ElmViewTransition extends HTMLElement {
       if (this.viewTransitions !== null) {
         this.pendingViewTransition = true
       }
+    }
   }
 }
