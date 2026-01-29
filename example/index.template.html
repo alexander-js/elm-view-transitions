@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>elm-view-transitions example</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    button { padding: 0.5rem 1rem; cursor: pointer; margin: 1rem 0; }
+    ::view-transition-group(*) {
+      animation-duration: var(--vt-duration, 0.4s);
+      animation-timing-function: ease-in-out;
+    }
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation-duration: var(--vt-duration, 0.4s);
+      animation-timing-function: ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+{{APP_JS}}
+var appNode = document.getElementById("app");
+var app = Elm.Main.init({ node: appNode });
+ElmViewTransition.init(app, appNode);
+  </script>
+</body>
+</html>
